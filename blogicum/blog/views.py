@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import Http404
+
 
 posts = [
     {
@@ -44,19 +46,21 @@ posts = [
 ]
 
 
-# view-функция возвращает функцию render(), в которую передаётся
-# объект запроса request и адрес HTML-шаблона
 def index(request):
     """Вывод записи на главную страницу."""
     template_name = 'blog/index.html'
-    context = {'posts_list': posts[::-1]}  # pytest требует инверт. список
+    context = {'posts_list': posts[::-1]}
     return render(request, template_name, context)
 
 
-def post_detail(request, pk):
+def post_detail(request, post_id):
     """Вывод отдельной страницы поста."""
     template_name = 'blog/detail.html'
-    context = {'post': posts[pk]}
+
+    """поставим тут проверку перед обращением в список постов"""
+    # if пост_не_существует:
+    #     Выбрасываем исключение Http404
+    context = {'post': posts[post_id]}
     return render(request, template_name, context)
 
 
@@ -65,3 +69,10 @@ def category_posts(request, category_slug):
     template_name = 'blog/category.html'
     context = {'category_slug': category_slug, "post_list": posts}
     return render(request, template_name, context)
+
+
+# https://nuancesprog.ru/p/13061/
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

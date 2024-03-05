@@ -27,3 +27,5 @@ urlpatterns = [
     path('pages/', include('pages.urls', namespace='pages')),
     path('', include('blog.urls', namespace='blog')),
 ]
+
+handler404 = "blog.views.page_not_found_view"
