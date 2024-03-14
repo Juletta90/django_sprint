@@ -4,7 +4,11 @@
   <nav class="navbar navbar-light" style="background-color: lightskyblue">
     <div class="container">
       <a class="navbar-brand" href="{% url 'blog:index' %}">
-        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="{% static 'img/logo.png' %}"
+             width="30"
+             height="30"
+             class="d-inline-block align-top"
+             alt="">
         Блогикум
       </a>
       <!-- Создаём синоним для выражения request.resolver_match.view_name -->

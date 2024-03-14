@@ -20,12 +20,8 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/<int:id>/', include('blog.urls', namespace='blog')),
-    path(
-        'category/<slug:category_slug>/', include('blog.urls', namespace='blog'
-                                                  )),
     path('pages/', include('pages.urls', namespace='pages')),
     path('', include('blog.urls', namespace='blog')),
 ]
 
-handler404 = "blog.views.page_not_found_view"
+

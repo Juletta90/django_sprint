@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from django.http import Http404
 
 
@@ -53,14 +54,15 @@ def index(request):
     return render(request, template_name, context)
 
 
-def post_detail(request, post_id):
+def post_detail(request, id):
     """Вывод отдельной страницы поста."""
     template_name = 'blog/detail.html'
 
     """поставим тут проверку перед обращением в список постов"""
-    # if пост_не_существует:
-    #     Выбрасываем исключение Http404
-    context = {'post': posts[post_id]}
+    post = [post for post in posts if post['id'] == id]
+    if not post:
+        raise Http404('Указан неверный id')
+    context = {'post': posts[id]}
     return render(request, template_name, context)
 
 
@@ -71,8 +73,6 @@ def category_posts(request, category_slug):
     return render(request, template_name, context)
 
 
-# https://nuancesprog.ru/p/13061/
+# https://github.com/RiSSoL-86/django_sprint1/tree/main
 
-
-def page_not_found_view(request, exception):
-    return render(request, '404.html', status=404)
+# https://pythoncircle.com/post/424/solving-django-error-noreversematch-at-url-with-arguments-and-keyword-arguments-not-found/

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
   Публикации в категории «{{ category_slug }}»
@@ -6,4 +7,7 @@
 
 {% block content %}
   <h1>Публикации в категории - {{ category_slug }}</h1>
+   {% if posts %}
+    {% include "includes/post_info.html" %}
+  {% endif %}
 {% endblock %}
