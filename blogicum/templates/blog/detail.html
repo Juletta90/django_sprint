@@ -8,6 +8,14 @@
 {% block content %}
 <div class="container py-5">
   <article>
+    {% include "includes/post_info.html" %}
+  </article>
+</div>
+{% endblock %}
+
+
+
+  <article>
     <ul>
       <li>
         Место: {{ post.location }}

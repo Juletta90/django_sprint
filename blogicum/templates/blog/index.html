@@ -11,6 +11,14 @@
 
 <!--цикл по списку публикаций - название posts_list из blog\views.py -->
   {% for post in posts_list %}
+    <article class="mb-5">
+      {% include "includes/post_info.html" %}
+    </article>
+  {% endfor %}
+{% endblock %}
+
+
+
 <hr>
   <article>
     <ul>
