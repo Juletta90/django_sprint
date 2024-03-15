@@ -57,8 +57,6 @@ def index(request):
 def post_detail(request, id):
     """Вывод отдельной страницы поста."""
     template_name = 'blog/detail.html'
-
-    """поставим тут проверку перед обращением в список постов"""
     post = [post for post in posts if post['id'] == id]
     if not post:
         raise Http404('Указан неверный id')
