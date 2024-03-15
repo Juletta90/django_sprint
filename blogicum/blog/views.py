@@ -71,6 +71,3 @@ def category_posts(request, category_slug):
     return render(request, template_name, context)
 
 
-# https://github.com/RiSSoL-86/django_sprint1/tree/main
-
-# https://pythoncircle.com/post/424/solving-django-error-noreversematch-at-url-with-arguments-and-keyword-arguments-not-found/
