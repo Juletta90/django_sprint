@@ -67,5 +67,5 @@ def post_detail(request, id):
 def category_posts(request, category_slug):
     """Вывод страницы категории."""
     template_name = 'blog/category.html'
-    context = {'category_slug': category_slug, "post_list": posts}
+    context = {'category_slug': category_slug}
     return render(request, template_name, context)

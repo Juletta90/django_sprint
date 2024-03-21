@@ -13,9 +13,10 @@
   {% for post in posts_list %}
     <article class="mb-5">
       {% include "includes/post_info.html" %}
+        <p>
+          {{ post.text|truncatewords:10 }}
+        </p>
+      <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
     </article>
   {% endfor %}
 {% endblock %}
-
-
-
