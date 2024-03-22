@@ -9,8 +9,8 @@
 {% block content %}
   <h1>Лента записей</h1>
 
-<!--цикл по списку публикаций - название posts_list из blog\views.py -->
-  {% for post in posts_list %}
+<!--цикл по списку публикаций - название posts_list из blog\views.py       for post in posts_list   -->
+  {% for post in posts_dict %}
     <article class="mb-5">
       {% include "includes/post_info.html" %}
         <p>
